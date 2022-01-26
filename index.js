@@ -37,11 +37,13 @@ if (pathname == "/") {
 console.log("method")
 console.log(request.method)
 
-var ok=false
-if (  request.method == "GET" ) { ok=true }
-if (  request.method == "POST" ) { ok=true }
+var ok="false"
+if (  request.method == "GET" )  { ok="true" }
+if (  request.method == "POST" ) { ok="true" }
+console.log("ok")
+console.log(OK)
 
-if (ok == false) {
+if (ok == "false") {
   return new Response(`Method ${request.method} not allowed.`, { status: 405 }) }
 
 
