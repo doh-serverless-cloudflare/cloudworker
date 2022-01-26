@@ -60,14 +60,15 @@ const newRequest = new Request(newURL, {
   method: request.method,
   redirect: request.redirect
 })
+
 if (  request.method == "POST" )  { 
   let body = await request.text()
   let formData = new URLSearchParams(body)
   let newRequest  =  new Request(newURL, {
     body: body,
     headers: request.headers,
-    method: request.method,
-    redirect: request.redirect
+    method: "GET",
+//       redirect: request.redirect
   })
     ////////////let body = await request.text()
     ////////////let formData = new URLSearchParams(body)
