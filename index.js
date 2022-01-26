@@ -61,8 +61,7 @@ const newRequest = new Request(newURL, {
 })
 //transfer post param to body
 if (  request.method == "POST" )  { 
-  request.headers.delete("Content-Length")
-  request.headers.delete("content-length")
+
 
   let body = await request.text()
   let formData = new URLSearchParams(body)
@@ -72,6 +71,8 @@ if (  request.method == "POST" )  {
     method: "GET",
 //       redirect: request.redirect
   })
+  newRequest.headers.delete("Content-Length")
+  newRequest.headers.delete("content-length")
   
     ////////////let body = await request.text()
     ////////////let formData = new URLSearchParams(body)
