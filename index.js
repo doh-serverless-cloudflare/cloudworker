@@ -75,13 +75,14 @@ if (  request.method == "POST" )  {
   let body = await request.text()
   let formData = new URLSearchParams(body)
   
-  const params = {}
-  const queryString = body.split('=')
-  queryString.forEach(item => {
-  const kv = item.split('=')
-  if (kv[0]) params[kv[0]] = kv[1] || true
-  })
-  var query = JSON.stringify(params);
+  //const params = {}
+  //const queryString = body.split('=')
+  //queryString.forEach(item => {
+  //const kv = item.split('=')
+  //if (kv[0]) params[kv[0]] = kv[1] || true
+  //})
+  //var query = JSON.stringify(params);
+  var query = '?' + body;
   newURL = `https://${DOH_ADDRESS}${pathname}${query}` 
 
   if ( pathname == "/dns-query") {   newURL = `https://${ALT_DOH_ADDRESS_JSON}${pathname}${query}`  }
