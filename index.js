@@ -52,6 +52,7 @@ async function handleRequest(request) {
   if (pathname == "/resolv") {
     newURL = `https://${ALT_DOH_ADDRESS}${pathname}${search}`
   }
+}
 
   const newRequest = new Request(newURL, {
     body: request.body,
