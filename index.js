@@ -35,14 +35,12 @@ const { pathname, search } = url
 if (pathname == "/") {
   return Response.redirect("https://milgradesec.github.io/paesadns/", 301)
 }
-console.log("method")
-console.log(request.method)
+//console.log("method");console.log(request.method)
 
 var ok="false"
 if (  request.method == "GET" )  { ok="true" }
 if (  request.method == "POST" ) { ok="true" }
-console.log("ok")
-console.log(ok)
+//console.log("ok");console.log(ok)
 
 if (ok == "false") {
   return new Response(`Method ${request.method} not allowed.`, { status: 405 }) }
@@ -67,7 +65,6 @@ if (ok == "false") {
       ////////////})
       ////////////var test = JSON.stringify(params);
       ////////////return new Response(test, { status: 200 });
-      
    }
 
 
