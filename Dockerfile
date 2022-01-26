@@ -5,4 +5,4 @@ COPY . .
 
 
 
-ENTRYPOINT ["miniflare","index.js","--debug","--watch","--port","8008"]
+ENTRYPOINT ["miniflare","index.js","--debug","--watch","--port","8080"]
