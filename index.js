@@ -65,7 +65,7 @@ if (  request.method == "POST" )  {
   let body = await request.text()
   let formData = new URLSearchParams(body)
   let newRequest  =  new Request(newURL, {
-    body: body,
+//    body: body,
     headers: request.headers,
     method: "GET",
 //       redirect: request.redirect
