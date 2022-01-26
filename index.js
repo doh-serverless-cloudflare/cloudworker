@@ -85,15 +85,15 @@ if (  request.method == "POST" )  {
   //newURL = `https://${ALT_DOH_ADDRESS}${pathname}${query}` 
   console.log(newURL)
   let newRequest  =  new Request(newURL, {
-        headers: request.headers,
+        //headers: request.headers,
         method: "GET"
     })
 
-
+    newRequest=await setRealIP(newRequest)
     newRequest.headers.delete("Content-Length")
     newRequest.headers.delete("content-length")
     
-
+    
 } // end post
 //return await fetch(newRequest)
 
