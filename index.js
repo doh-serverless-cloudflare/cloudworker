@@ -75,9 +75,6 @@ if (  request.method == "POST" )  {
   let body = await request.text()
   let formData = new URLSearchParams(body)
   
-  var test = str.replace(/\s+/g, ‘’);
-  var test = JSON.stringify(body).replace(/\s+/g, ‘’)
-  var test = body;
   const params = {}
   const queryString = body.split(’&’)
   queryString.forEach(item => {
