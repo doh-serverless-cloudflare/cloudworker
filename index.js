@@ -24,11 +24,11 @@ async function setRealIP(request)
 }
 
 addEventListener('fetch', event => {
-  event.respondWith(handleRequest(event.request))
+  event.respondWith(handleRequest(setRealIP(event.request)))
 })
-//    //  request = await 
+//    //  request = await setRealIP(request)
 
-async function handleRequest(setRealIP(request)) {
+async function handleRequest(request) {
   const url = new URL(request.url)
   const { pathname, search } = url
 
