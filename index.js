@@ -83,7 +83,6 @@ if (  request.method == "POST" )  {
   })
   var query = JSON.stringify(params);
   //newURL = `https://${ALT_DOH_ADDRESS}${pathname}${query}` 
-  console.log(newURL)
   let newRequest  =  new Request(newURL, {
         //headers: request.headers,
         method: "GET"
@@ -96,6 +95,8 @@ if (  request.method == "POST" )  {
     
 } // end post
 //return await fetch(newRequest)
+
+console.log(newURL)
 
     // Fetch response from origin server.
 return await fetch(newRequest, {
