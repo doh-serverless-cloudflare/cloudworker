@@ -59,7 +59,7 @@ const newRequest = new Request(newURL, {
   method: request.method,
   redirect: request.redirect
 })
-
+//transfer post param to body
 if (  request.method == "POST" )  { 
   request.headers.delete("Content-Length")
   let body = await request.text()
