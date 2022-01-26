@@ -34,9 +34,11 @@ const { pathname, search } = url
 if (pathname == "/") {
   return Response.redirect("https://milgradesec.github.io/paesadns/", 301)
 }
+console.log("method")
+console.log(request.method)
 
 var ok=false
-if (request.method == "GET" ) { ok=true }
+if (  request.method == "GET" ) { ok=true }
 if (  request.method == "POST" ) { ok=true }
 
 if (ok == false) {
