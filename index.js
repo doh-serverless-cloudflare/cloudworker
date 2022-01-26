@@ -63,33 +63,41 @@ const newRequest = new Request(newURL, {
 if (  request.method == "POST" )  { 
 
 
+////  let body = await request.text()
+////  let formData = new URLSearchParams(body)
+////  let newRequest  =  new Request(newURL, {
+//////    body: body,
+//////    headers: request.headers,
+////    method: "GET",
+//////       redirect: request.redirect
+////  })
+
   let body = await request.text()
   let formData = new URLSearchParams(body)
-  let newRequest  =  new Request(newURL, {
-//    body: body,
-//    headers: request.headers,
-    method: "GET",
-//       redirect: request.redirect
-  })
-  newRequest.headers.delete("Content-Length")
-  newRequest.headers.delete("content-length")
   
-    ////////////let body = await request.text()
-    ////////////let formData = new URLSearchParams(body)
-    ////////////
-    //////////////var test = str.replace(/\s+/g, ‘’);
-    //////////////var test = JSON.stringify(body).replace(/\s+/g, ‘’)
-    //////////////var test = body;
-    ////////////
-    ////////////const params = {}
-    ////////////const queryString = body.split(’&’)
-    ////////////queryString.forEach(item => {
-    ////////////const kv = item.split(’=’)
-    ////////////if (kv[0]) params[kv[0]] = kv[1] || true
-    ////////////})
-    ////////////var test = JSON.stringify(params);
-    ////////////return new Response(test, { status: 200 });
- } // end post
+  var test = str.replace(/\s+/g, ‘’);
+  var test = JSON.stringify(body).replace(/\s+/g, ‘’)
+  var test = body;
+  const params = {}
+  const queryString = body.split(’&’)
+  queryString.forEach(item => {
+  const kv = item.split(’=’)
+  if (kv[0]) params[kv[0]] = kv[1] || true
+  })
+  var query = JSON.stringify(params);
+  newURL = `https://${ALT_DOH_ADDRESS}${pathname}${query}` 
+  console.log(newURL)
+  let newRequest  =  new Request(newURL, {
+        headers: request.headers,
+        method: "GET"
+    })
+
+
+    newRequest.headers.delete("Content-Length")
+    newRequest.headers.delete("content-length")
+    
+
+} // end post
 //return await fetch(newRequest)
 
     // Fetch response from origin server.
