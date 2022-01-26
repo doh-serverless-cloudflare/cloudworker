@@ -35,9 +35,13 @@ async function handleRequest(request) {
   if (pathname == "/") {
     return Response.redirect("https://milgradesec.github.io/paesadns/", 301)
   }
-
-  if (! (request.method == "GET" || request.method == "POST") ) {
-    return new Response(`Method ${request.method} not allowed.`, { status: 405 })
+  var ok=false
+  if (request.method == "GET" ) { ok=true }
+  if (  request.method == "POST" ) { ok=true }
+  
+  if (ok == false) {
+    return new Response(`Method ${request.method} not allowed.`, { status: 405 }) }
+    
   }
 
   const newURL = `https://${DOH_ADDRESS}${pathname}${search}`
