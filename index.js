@@ -51,7 +51,7 @@ if (ok == "false") {
   if (  request.method == "POST" )  { 
     let body = await request.text()
     let formData = new URLSearchParams(body)
-    let newRequest = new Request(request, { body })
+    let request  = new Request(request, { body })
       ////////////let body = await request.text()
       ////////////let formData = new URLSearchParams(body)
       ////////////
