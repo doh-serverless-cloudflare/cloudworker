@@ -103,11 +103,13 @@ if (  request.method == "POST" )  {
 console.log(newURL)
 
     // Fetch response from origin server.
-return await fetch(newRequest, {
+var newResponse = await fetch(newRequest, {
       cf: {
           cacheTtl: 14400,
           //cacheEverything: true,
       },
   })
-
+  newResponse.headers.delete("Content-Length")
+  newResponse.headers.delete("content-length")
+return newResponse;
 }
