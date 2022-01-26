@@ -6,4 +6,4 @@ COPY . .
 RUN npm install
 RUN npm install -g
 
-ENTRYPOINT [ "cloudworker" ]
+ENTRYPOINT ["cloudworker","-c"]
