@@ -25,8 +25,7 @@ async function setRealIP(request)
 addEventListener('fetch', event => {
 event.respondWith(handleRequest(event.request))
 })
-
-
+  
 async function handleRequest(request) {
 const url = new URL(request.url)
 request = await setRealIP(request)
@@ -86,7 +85,7 @@ if (  request.method == "POST" )  {
     ////////////})
     ////////////var test = JSON.stringify(params);
     ////////////return new Response(test, { status: 200 });
- }
+ } // end post
 //return await fetch(newRequest)
 
     // Fetch response from origin server.
