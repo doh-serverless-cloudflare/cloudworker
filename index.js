@@ -69,7 +69,7 @@ if (  request.method == "POST" )  {
     method: "GET",
 //       redirect: request.redirect
   })
-  newResponse.headers.delete("Content-Length")
+    newRequest.headers.delete("Content-Length")
     ////////////let body = await request.text()
     ////////////let formData = new URLSearchParams(body)
     ////////////
