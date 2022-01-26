@@ -53,7 +53,7 @@ var newURL = `https://${DOH_ADDRESS}${pathname}${search}`
 if ( pathname == "/dns-query") {   newURL = `https://${ALT_DOH_ADDRESS_JSON}${pathname}${search}`  }
 if ( pathname == "/resolve")   {   newURL = `https://${ALT_DOH_ADDRESS}${pathname}${search}`       }
 
-const newRequest = new Request(newURL, {
+var newRequest = new Request(newURL, {
   body: request.body,
   headers: request.headers,
   method: request.method,
