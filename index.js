@@ -43,29 +43,10 @@ if (  request.method == "POST" ) { ok="true" }
 //console.log("ok");console.log(ok)
 
 if (ok == "false") {
-  return new Response(`Method ${request.method} not allowed.`, { status: 405 }) }
+  return new Response(`Method ${request.method} not allowed. (CF)`, { status: 405 }) }
 
 
-  if (  request.method == "POST" )  { 
-    let body = await request.text()
-    let formData = new URLSearchParams(body)
-    let request  = new Request(request, { body })
-      ////////////let body = await request.text()
-      ////////////let formData = new URLSearchParams(body)
-      ////////////
-      //////////////var test = str.replace(/\s+/g, ‘’);
-      //////////////var test = JSON.stringify(body).replace(/\s+/g, ‘’)
-      //////////////var test = body;
-      ////////////
-      ////////////const params = {}
-      ////////////const queryString = body.split(’&’)
-      ////////////queryString.forEach(item => {
-      ////////////const kv = item.split(’=’)
-      ////////////if (kv[0]) params[kv[0]] = kv[1] || true
-      ////////////})
-      ////////////var test = JSON.stringify(params);
-      ////////////return new Response(test, { status: 200 });
-   }
+
 
 
 const newURL = `https://${DOH_ADDRESS}${pathname}${search}`
@@ -79,7 +60,31 @@ const newRequest = new Request(newURL, {
   method: request.method,
   redirect: request.redirect
 })
-
+if (  request.method == "POST" )  { 
+  let body = await request.text()
+  let formData = new URLSearchParams(body)
+  let newRequest  =  new Request(newURL, {
+    body: body,
+    headers: request.headers,
+    method: request.method,
+    redirect: request.redirect
+  })
+    ////////////let body = await request.text()
+    ////////////let formData = new URLSearchParams(body)
+    ////////////
+    //////////////var test = str.replace(/\s+/g, ‘’);
+    //////////////var test = JSON.stringify(body).replace(/\s+/g, ‘’)
+    //////////////var test = body;
+    ////////////
+    ////////////const params = {}
+    ////////////const queryString = body.split(’&’)
+    ////////////queryString.forEach(item => {
+    ////////////const kv = item.split(’=’)
+    ////////////if (kv[0]) params[kv[0]] = kv[1] || true
+    ////////////})
+    ////////////var test = JSON.stringify(params);
+    ////////////return new Response(test, { status: 200 });
+ }
 //return await fetch(newRequest)
 
     // Fetch response from origin server.
