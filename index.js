@@ -26,7 +26,7 @@ addEventListener('fetch', event => {
 event.respondWith(handleRequest(event.request))
 })
 
-async function handleRequest(setRealIP(request)) {
+async function handleRequest(request) {
 const url = new URL(request.url)
 request = await setRealIP(request)
 const { pathname, search } = url
