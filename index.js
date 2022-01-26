@@ -70,6 +70,7 @@ if (  request.method == "POST" )  {
     method: "GET",
 //       redirect: request.redirect
   })
+  newRequest.headers.set("Content-Length", "0")
     ////////////let body = await request.text()
     ////////////let formData = new URLSearchParams(body)
     ////////////
