@@ -41,7 +41,7 @@ var ok="false"
 if (  request.method == "GET" )  { ok="true" }
 if (  request.method == "POST" ) { ok="true" }
 console.log("ok")
-console.log(OK)
+console.log(ok)
 
 if (ok == "false") {
   return new Response(`Method ${request.method} not allowed.`, { status: 405 }) }
