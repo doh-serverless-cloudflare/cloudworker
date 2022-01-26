@@ -1,8 +1,8 @@
-FROM node:10
-
-WORKDIR /usr/src/app
+FROM alpine
+MKDIR /app
+WORKDIR /app
 COPY . .
 
-RUN npm install -g miniflare
+RUN apk add npm && npm install -g miniflare
 
 ENTRYPOINT ["miniflare","index.js","--debug","--watch","--port","8008"]
