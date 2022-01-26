@@ -82,7 +82,7 @@ if (  request.method == "POST" )  {
   if (kv[0]) params[kv[0]] = kv[1] || true
   })
   var query = JSON.stringify(params);
-  newURL = `https://${ALT_DOH_ADDRESS}${pathname}${query}` 
+  //newURL = `https://${ALT_DOH_ADDRESS}${pathname}${query}` 
   console.log(newURL)
   let newRequest  =  new Request(newURL, {
         headers: request.headers,
