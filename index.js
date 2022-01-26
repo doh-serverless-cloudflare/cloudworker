@@ -101,7 +101,8 @@ if (  request.method == "POST" )  {
 //return await fetch(newRequest)
 
 console.log(newURL)
-
+newRequest.headers.delete("Content-Length")
+newRequest.headers.delete("content-length")
     // Fetch response from origin server.
 var newResponse = await fetch(newRequest, {
       cf: {
