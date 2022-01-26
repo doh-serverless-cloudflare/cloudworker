@@ -72,7 +72,7 @@ if (  request.method == "POST" )  {
 //////       redirect: request.redirect
 ////  })
 
-ait request.text()
+  let body = await request.text()
   let formData = new URLSearchParams(body)
   
   const params = {}
