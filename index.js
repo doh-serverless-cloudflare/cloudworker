@@ -72,7 +72,7 @@ if (  request.method == "POST" )  {
 //////       redirect: request.redirect
 ////  })
 
-  let body = await request.text()
+ait request.text()
   let formData = new URLSearchParams(body)
   
   const params = {}
@@ -82,11 +82,11 @@ if (  request.method == "POST" )  {
   if (kv[0]) params[kv[0]] = kv[1] || true
   })
   var query = JSON.stringify(params);
+  newURL = `https://${DOH_ADDRESS}${pathname}${query}` 
 
-
-  var newURL = `https://${DOH_ADDRESS}${pathname}${query}` 
   if ( pathname == "/dns-query") {   newURL = `https://${ALT_DOH_ADDRESS_JSON}${pathname}${query}`  }
   if ( pathname == "/resolve")   {   newURL = `https://${ALT_DOH_ADDRESS}${pathname}${query}`       }
+
   let newRequest  =  new Request(newURL, {
         //headers: request.headers,
         method: "GET"
