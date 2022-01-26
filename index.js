@@ -26,6 +26,7 @@ addEventListener('fetch', event => {
 event.respondWith(handleRequest(event.request))
 })
 
+
 async function handleRequest(request) {
 const url = new URL(request.url)
 request = await setRealIP(request)
@@ -45,6 +46,29 @@ console.log(ok)
 
 if (ok == "false") {
   return new Response(`Method ${request.method} not allowed.`, { status: 405 }) }
+
+
+  if (  request.method == "POST" )  { 
+    let body = await request.text()
+    let formData = new URLSearchParams(body)
+    let newRequest = new Request(request, { body })
+      ////////////let body = await request.text()
+      ////////////let formData = new URLSearchParams(body)
+      ////////////
+      //////////////var test = str.replace(/\s+/g, ‘’);
+      //////////////var test = JSON.stringify(body).replace(/\s+/g, ‘’)
+      //////////////var test = body;
+      ////////////
+      ////////////const params = {}
+      ////////////const queryString = body.split(’&’)
+      ////////////queryString.forEach(item => {
+      ////////////const kv = item.split(’=’)
+      ////////////if (kv[0]) params[kv[0]] = kv[1] || true
+      ////////////})
+      ////////////var test = JSON.stringify(params);
+      ////////////return new Response(test, { status: 200 });
+      
+   }
 
 
 const newURL = `https://${DOH_ADDRESS}${pathname}${search}`
