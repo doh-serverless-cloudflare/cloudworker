@@ -5,12 +5,31 @@ function base64Encode(byteArray) {
     }).join('')).replace(/\+/g, '-').replace(/\//g, '_').replace(/\=/g, '');
 }
 
+async function setRealIP(request) 
+{
+    var ip=""
+    // Get the X-Forwarded-For header if it exists
+    ip = request.headers.get("X-Forwarded-For")
+    if (!ip) {
+       //console.log("X-Forwarded-For was null")
+       ip = request.headers.get("Cf-Connecting-Ip")
+       //console.log("Getting IP from CF-Connecting-IP:"+ip)
+    }
+    
+    // Add Real IP to header
+    request = new Request(request)
+    request.headers.set('True-Client-IP', ip)
+    
+    return request
+}
+
 addEventListener('fetch', event => {
   event.respondWith(handleRequest(event.request))
 })
 
 async function handleRequest(request) {
   const url = new URL(request.url)
+  request = await setRealIP(request)
   const { pathname, search } = url
 
   if (pathname == "/") {
