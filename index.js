@@ -76,9 +76,9 @@ if (  request.method == "POST" )  {
   let formData = new URLSearchParams(body)
   
   const params = {}
-  const queryString = body.split(’&’)
+  const queryString = body.split('=')
   queryString.forEach(item => {
-  const kv = item.split(’=’)
+  const kv = item.split('=')
   if (kv[0]) params[kv[0]] = kv[1] || true
   })
   var query = JSON.stringify(params);
