@@ -92,7 +92,7 @@ if (  request.method == "POST" )  {
         //headers: request.headers,
         method: "GET"
     })
-
+    console.log(newURL);
     newRequest=await setRealIP(newRequest)
     newRequest.headers.delete("Content-Length")
     newRequest.headers.delete("content-length")
