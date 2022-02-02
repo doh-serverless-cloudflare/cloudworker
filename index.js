@@ -85,8 +85,8 @@ if (  request.method == "POST" )  {
   var query = '?' + body;
   newURL = `https://${DOH_ADDRESS}${pathname}${query}` 
 
-  if ( pathname == "/dns-query") {   newURL = `https://${ALT_DOH_ADDRESS_JSON}${pathname}${query}`  }
-  if ( pathname == "/resolve")   {   newURL = `https://${ALT_DOH_ADDRESS}${pathname}${query}`       }
+  if ( pathname == "/resolve")     {   newURL = `https://${ALT_DOH_ADDRESS_JSON}${pathname}${query}`  }
+  if ( pathname == "/dns-query")   {   newURL = `https://${ALT_DOH_ADDRESS}${pathname}${query}`       }
 
   let newRequest  =  new Request(newURL, {
         //headers: request.headers,
